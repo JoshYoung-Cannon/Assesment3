@@ -21,7 +21,13 @@ public class GameplayLoop {
 	public void gameplay() {
 		String movementString;
 		int[] movementInt = {0,0};
-		PointOfInterest poi = new PointOfInterest(ListOfFeatures.TREASURECHEST.getFeatureName(), 1, 1);
+		ListOfFeatures goal;
+		if (((int) (Math.random() * 100)) % 2 ==0) {
+			goal = ListOfFeatures.TREASURECHEST;
+		} else {
+			goal = ListOfFeatures.AWAYOUT;
+		}
+		PointOfInterest poi = new PointOfInterest(goal.getFeatureName(), 1, 1);
 		System.out.println(this.intro);
 		while (playing) {
 			poi.getZ();
